@@ -23,7 +23,8 @@ def make_dinnerlist():
 def add_guest():
     # Adds Guest to the list
     name = input("Enter Guest name: ").title().strip()
-
+    invite = int(input("Enter Guest invite: ").strip())
+    guest_invitations.append()
     guest_lists.append(name)  # Element to add to list
 
 
