@@ -41,3 +41,25 @@ def remove_guest():
         guest_invitations.pop(index)  # Removes guest invitation
     else:
         print("No known guest on list.")
+
+
+def show_guests():
+    # Show all guests
+    if not guest_lists:
+        print("No guests in list")
+        return
+    # Go through list of guests.
+    print("\nDinner Guest List")
+    for index in range(len(guest_lists)):
+        print(guest_lists[i], " - ", guest_invitations[i])
+
+
+def show_invitations():
+    # Show all invitations
+    if not guest_invitations:
+        print("No invitations in list")
+        return
+    # Go through list of guests.
+    print("\nDinner Guest Invitations")
+    for index in range(len(guest_invitations)):
+        print(guest_invitations[index])
