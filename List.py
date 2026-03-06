@@ -31,8 +31,20 @@ def add_guest():
     if name == "": # Code for empty name
         print("Name can't be empty")
         return
+    
+    if name in guest_lists:
+        print("Duplicate name error")
+        return
+    
+    invite = input("Enter number of invites:").strip()
 
-
+    if invite.isdigit() == False:
+        print("Invite must be number")
+        return
+    
+    guest_lists.append(name) # Append= Add element
+    guest_invitations.append(int(invite))
+    print("Added guest")
 
 def remove_guest():
     # Removes guest and their invite
@@ -47,6 +59,10 @@ def remove_guest():
         guest_invitations.pop(index)  # Removes guest invitation
     else:
         print("No known guest on list.")
+
+def modify_guest():
+
+
 
 
 def show_guests():
