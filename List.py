@@ -16,16 +16,22 @@ guest_lists = []
 
 
 def make_dinnerlist():
-    # Ask for list name then return
-    return input("Enter Guest List: ").title().strip()
-
+    while True:
+        name = input("Enter Guest List: ").strip().title()
+        if name == "": # Code to avoid empty list name
+            print("List name is empty")
+        else:
+            return name
+    
 
 def add_guest():
     # Adds Guest to the list
     name = input("Enter Guest name: ").title().strip()
-    invite = int(input("Enter Guest invite: ").strip())
-    guest_invitations.append()
-    guest_lists.append(name)  # Element to add to list
+
+    if name == "": # Code for empty name
+        print("Name can't be empty")
+        return
+
 
 
 def remove_guest():
