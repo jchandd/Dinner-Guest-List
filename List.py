@@ -61,6 +61,34 @@ def remove_guest():
         print("No known guest on list.")
 
 def modify_guest():
+    name = input("Enter guest name to make changes:").title().strip()
+
+    if name not in guest_lists:
+        print("No guest by that name")
+        return
+    
+    index = guest_lists.index(name)
+
+    new_name = input("Enter new name:").strip().title()
+
+    if new_name == "":
+        print("Can't have empty name")
+        return
+    
+    if new_name in guest_lists and not new_name == name:
+        print("Duplicate names not allowed")
+        return
+    
+    invite = input("Enter new invitations:").strip()
+
+    if invite.isdigit() == False: # is.digit literally means if there is digits
+        print("Invite must be numerical")
+        return
+    
+    guest_lists[index] = new_name
+    guest_invitations[index] = int(invite)
+
+    print("Guest has been modified")
 
 
 
