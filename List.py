@@ -101,7 +101,7 @@ def show_guests():
     # Go through list of guests.
     print("\nDinner Guest List")
     for index in range(len(guest_lists)):
-        print(guest_lists[i], " - ", guest_invitations[i])
+        print(guest_lists[index], " - ", guest_invitations[index])
 
 
 def show_invitations():
