@@ -133,3 +133,43 @@ def sort_guests():
 
 def show_guestcount():
     print("Guest number:", len(guest_lists))  
+
+def main():
+    make_guestlist()
+
+    while True:
+        print("\nDinner Guest List")
+        print("1. Add Guest")
+        print("2. Modify Guest")
+        print("3. Remove Guest")
+        print("4. Sort Guest")
+        print("5. Number of Guests")
+        print("6. Show Invites")
+        print("7. Show guest lists")
+        print("8. Leave")
+
+        choice = input("Enter Choice: ").strip()
+
+        if choice == "1":
+            add_guest()
+        elif choice == "2":
+            modify_guest()
+        elif choice == "3":
+            remove_guest()
+        elif choice == "4":
+            sort_guests()
+        elif choice == "5":
+            show_guestcount()
+        elif choice == "6":
+            show_invitations()
+        elif choice == "7":
+            show_guests()
+        elif choice == "8":
+            print("Goodbye")
+            break
+        else:
+            print("Select valid option")
+
+
+if __name__ == "__main__":
+    main()
