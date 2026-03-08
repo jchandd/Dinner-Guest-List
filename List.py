@@ -113,3 +113,23 @@ def show_invitations():
     print("\nDinner Guest Invitations")
     for index in range(len(guest_invitations)):
         print(guest_invitations[index])
+
+def sort_guests():
+    if not guest_lists:
+        print("No Guests to sort")
+        return
+    
+    combined = list(zip(guest_lists, guest_invitations))
+    combined.sort()
+
+    guest_lists.clear()
+    guest_invitations.clear()
+
+    for name, invite in combined:
+        guest_lists.append(name)
+        guest_invitations.append(invite)
+
+    print("Sorted guests")
+
+def show_guestcount():
+    print("Guest number:", len(guest_lists))  
