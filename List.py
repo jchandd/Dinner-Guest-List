@@ -135,7 +135,7 @@ def show_guestcount():
     print("Guest number:", len(guest_lists))  
 
 def main():
-    make_guestlist()
+    make_dinnerlist()
 
     while True:
         print("\nDinner Guest List")
