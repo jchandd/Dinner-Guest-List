@@ -38,7 +38,7 @@ def add_guest():
     
     invite = input("Enter number of invites:").strip()
 
-    if invite.isdigit() == False:
+    if not invite.isdigit():
         print("Invite must be number")
         return
     
@@ -81,8 +81,8 @@ def modify_guest():
     
     invite = input("Enter new invitations:").strip()
 
-    if invite.isdigit() == False: # is.digit literally means if there is digits
-        print("Invite must be numerical")
+    if not invite.isdigit(): # is.digit literally means if there is digits
+        print("Invite must be1 numerical")
         return
     
     guest_lists[index] = new_name
@@ -101,7 +101,7 @@ def show_guests():
     # Go through list of guests.
     print("\nDinner Guest List")
     for index in range(len(guest_lists)):
-        print(guest_lists[index], " - ", guest_invitations[index])
+        print(guest_lists[index], "-", guest_invitations[index])
 
 
 def show_invitations():
@@ -135,10 +135,10 @@ def show_guestcount():
     print("Guest number:", len(guest_lists))  
 
 def main():
-    make_dinnerlist()
+    list_name = make_dinnerlist()
 
     while True:
-        print("\nDinner Guest List")
+        print("\nDinner Guest List:", list_name)
         print("1. Add Guest")
         print("2. Modify Guest")
         print("3. Remove Guest")
