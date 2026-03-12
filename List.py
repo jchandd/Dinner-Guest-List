@@ -95,12 +95,21 @@ def show_invitations():
         return
 
     print("\nDinner Guest Invitations")
+
     for i in range(len(guest_lists)):
         print(
             guest_lists[i], "-", guest_invitations[i]
         )  # goes through the guest list and prints the name and number of invitations for each guest
 
     print("\nTotal Guests:", len(guest_lists))
+
+
+    for index in range(len(guest_invitations)):
+
+     print(guest_invitations[index])
+
+    print(guest_lists[index], "-", guest_invitations[index])
+
 
 
 def sort_guests():
