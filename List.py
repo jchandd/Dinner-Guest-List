@@ -26,7 +26,7 @@ def add_guest():
 
     invite = input("\nEnter number of invites: ").strip()
 
-    if not invite.isdigit():
+    if not invite.isdigit():  # means the input is not a number
         print("\nInvite must be a number")
         return
 
@@ -90,26 +90,28 @@ def show_guests():
 
 
 def show_invitations():
-    if not guest_lists:
+    if (
+        not guest_lists
+    ):  # checks if the guest list is empty, and if it is, it prints a message and returns from the function
         print("\nNo invitations in list")
         return
 
     print("\nDinner Guest Invitations")
 
-    for i in range(len(guest_lists)):
+    for i in range(
+        len(guest_lists)
+    ):  # goes through the guest list and prints the name and number of invitations for each guest
         print(
             guest_lists[i], "-", guest_invitations[i]
         )  # goes through the guest list and prints the name and number of invitations for each guest
 
     print("\nTotal Guests:", len(guest_lists))
 
-
     for index in range(len(guest_invitations)):
 
-     print(guest_invitations[index])
+        print(guest_invitations[index])
 
     print(guest_lists[index], "-", guest_invitations[index])
-
 
 
 def sort_guests():
@@ -117,7 +119,9 @@ def sort_guests():
         print("\nNo guests in list")
         return
 
-    sorted_guests = sorted(zip(guest_lists, guest_invitations))
+    sorted_guests = sorted(
+        zip(guest_lists, guest_invitations)
+    )  # creates a list of tuples where each tuple contains a guest name and the corresponding number of invitations, and sorts the list based on the guest names
     guest_lists[:], guest_invitations[:] = zip(
         *sorted_guests
     )  # sorts the guest list and the invitations together based on the guest names
@@ -126,7 +130,9 @@ def sort_guests():
 
 
 def show_guestcount():
-    print("\nNumber of guests:", len(guest_lists))
+    print(
+        "\nNumber of guests:", len(guest_lists)
+    )  # prints the number of guests in the list
 
 
 def main():
@@ -146,7 +152,7 @@ def main():
         choice = input("Enter Choice: ").strip()
 
         if choice == "":
-            print("Please enter a number between 1 and 8.")
+            print("\nPlease enter a number between 1 and 8.")
             continue
 
         if choice == "1":
