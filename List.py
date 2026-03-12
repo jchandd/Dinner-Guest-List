@@ -97,6 +97,7 @@ def show_invitations():
         return
 
     print("\nDinner Guest Invitations")
+<<<<<<< Updated upstream
     for i in range(len(guest_lists)):
         print(
             guest_lists[i], "-", guest_invitations[i]
@@ -104,6 +105,9 @@ def show_invitations():
 
     print("Total Guests:", len(guest_lists))
 
+=======
+    for index in range(len(guest_invitations)):
+        print(guest_invitations[index])
 
 def sort_guests():
     if not guest_lists:
