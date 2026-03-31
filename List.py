@@ -1,3 +1,6 @@
+from os import name
+
+
 guest_invitations = []
 guest_lists = []
 
@@ -90,28 +93,10 @@ def show_guests():
 
 
 def show_invitations():
-    if (
-        not guest_lists
-    ):  # checks if the guest list is empty, and if it is, it prints a message and returns from the function
-        print("\nNo invitations in list")
-        return
-
-    print("\nDinner Guest Invitations")
-
-    for i in range(
-        len(guest_lists)
-    ):  # goes through the guest list and prints the name and number of invitations for each guest
+    for i in range(len(guest_lists)):
         print(
-            guest_lists[i], "-", guest_invitations[i]
-        )  # goes through the guest list and prints the name and number of invitations for each guest
-
-    print("\nTotal Guests:", len(guest_lists))
-
-    for index in range(len(guest_invitations)):
-
-        print(guest_invitations[index])
-
-    print(guest_lists[index], "-", guest_invitations[index])
+            f"Hello {guest_lists[i]} you have been invited to dinner, please let us know if you can make it and have any food allergies or dietary restrictions. You have {guest_invitations[i]} invitations, we look forward to seeing you there!"
+        )
 
 
 def sort_guests():
