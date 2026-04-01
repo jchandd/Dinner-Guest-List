@@ -17,7 +17,7 @@ def make_dinnerlist():
 
 
 def add_guest():
-    name = input("\nEnter Guest name: ").strip().title()
+    name = input("Enter Guest name: ").strip().title()
 
     if name == "":
         print("\nName can't be empty")
@@ -29,8 +29,8 @@ def add_guest():
 
     invite = input("\nEnter number of invites: ").strip()
 
-    if not invite.isdigit():
-        print("Invite must be a number")
+    if not invite.isdigit():  # means the input is not a number
+        print("\nInvite must be a number")
         return
 
     guest_lists.append(name)
@@ -40,20 +40,18 @@ def add_guest():
 
 
 def remove_guest():
-    name = input("Which guest would you like to remove? ").strip().title()
-
+    name = input("\nWhich guest would you like to remove? ").strip().title()
     if name in guest_lists:
         index = guest_lists.index(name)
         guest_lists.pop(index)
         guest_invitations.pop(index)
-        print("\nGuest removed.")
+        print("Guest removed.")
     else:
         print("\nNo known guest on list.")
 
 
 def modify_guest():
-    name = input("Enter guest name to make changes: ").strip().title()
-
+    name = input("\nEnter guest name to make changes: ").strip().title()
     if name not in guest_lists:
         print("\nNo guest by that name.")
         return
@@ -96,15 +94,13 @@ def show_guests():
 
 def show_invitations():
     if not guest_lists:
-        print("No invitations in list")
+        print("\nNo invitations in list")
         return
 
-    print("\nDinner Guest Invitations")
+    print("\nInvitations:")
 
     for i in range(len(guest_lists)):
-        print(
-            f"Hello {guest_lists[i]} you have been invited to dinner, please let us know if you can make it and have any food allergies or dietary restrictions. You have {guest_invitations[i]} invitations, we look forward to seeing you there!"
-        )
+        print(f"{guest_lists[i]} - You are invited! ({guest_invitations[i]} invites)")
 
 
 def sort_guests():
@@ -142,7 +138,7 @@ def main():
         print("7. Show Guest List")
         print("8. Exit")
 
-        choice = input("\nEnter Choice: ").strip()
+        choice = input("Enter Choice: ").strip()
 
         if choice == "":
             print("\nPlease enter a number between 1 and 8.")
@@ -166,7 +162,7 @@ def main():
             print("Goodbye!")
             break
         else:
-            print("\nSelect a valid option.")
+            print("Select a valid option.")
 
 
 if __name__ == "__main__":
