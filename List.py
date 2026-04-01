@@ -1,3 +1,6 @@
+from os import name
+
+
 guest_invitations = []
 guest_lists = []
 
@@ -27,7 +30,7 @@ def add_guest():
     invite = input("\nEnter number of invites: ").strip()
 
     if not invite.isdigit():
-        print("\nInvite must be a number")
+        print("Invite must be a number")
         return
 
     guest_lists.append(name)
@@ -37,7 +40,7 @@ def add_guest():
 
 
 def remove_guest():
-    name = input("\nWhich guest would you like to remove? ").strip().title()
+    name = input("Which guest would you like to remove? ").strip().title()
 
     if name in guest_lists:
         index = guest_lists.index(name)
@@ -49,7 +52,7 @@ def remove_guest():
 
 
 def modify_guest():
-    name = input("\nEnter guest name to make changes: ").strip().title()
+    name = input("Enter guest name to make changes: ").strip().title()
 
     if name not in guest_lists:
         print("\nNo guest by that name.")
@@ -93,25 +96,15 @@ def show_guests():
 
 def show_invitations():
     if not guest_lists:
-        print("\nNo invitations in list")
+        print("No invitations in list")
         return
 
     print("\nDinner Guest Invitations")
 
     for i in range(len(guest_lists)):
         print(
-            guest_lists[i], "-", guest_invitations[i]
-        )  # goes through the guest list and prints the name and number of invitations for each guest
-
-    print("Total Guests:", len(guest_lists))
-
-
-    for index in range(len(guest_invitations)):
-
-     print(guest_invitations[index])
-
-    print(guest_lists[index], "-", guest_invitations[index])
-
+            f"Hello {guest_lists[i]} you have been invited to dinner, please let us know if you can make it and have any food allergies or dietary restrictions. You have {guest_invitations[i]} invitations, we look forward to seeing you there!"
+        )
 
 
 def sort_guests():
@@ -119,7 +112,9 @@ def sort_guests():
         print("\nNo guests in list")
         return
 
-    sorted_guests = sorted(zip(guest_lists, guest_invitations))
+    sorted_guests = sorted(
+        zip(guest_lists, guest_invitations)
+    )  # creates a list of tuples where each tuple contains a guest name and the corresponding number of invitations, and sorts the list based on the guest names
     guest_lists[:], guest_invitations[:] = zip(
         *sorted_guests
     )  # sorts the guest list and the invitations together based on the guest names
@@ -128,7 +123,9 @@ def sort_guests():
 
 
 def show_guestcount():
-    print("Number of guests:", len(guest_lists))
+    print(
+        "\nNumber of guests:", len(guest_lists)
+    )  # prints the number of guests in the list
 
 
 def main():
