@@ -4,84 +4,84 @@ guest_lists = []
 
 def make_dinnerlist():
     while True:
-        name = input("Enter Guest List Name: ").strip().title()
+        name = input("\nEnter Guest List Name: ").strip().title()
 
         if name == "":
-            print("List name cannot be empty.")
+            print("\nList name cannot be empty.")
         else:
-            print("Dinner list created:", name)
+            print("\nDinner list created:", name)
             return name
 
 
 def add_guest():
-    name = input("Enter Guest name: ").strip().title()
+    name = input("\nEnter Guest name: ").strip().title()
 
     if name == "":
-        print("Name can't be empty")
+        print("\nName can't be empty")
         return
 
     if name in guest_lists:
-        print("Duplicate name error")
+        print("\nDuplicate name error")
         return
 
-    invite = input("Enter number of invites: ").strip()
+    invite = input("\nEnter number of invites: ").strip()
 
     if not invite.isdigit():
-        print("Invite must be a number")
+        print("\nInvite must be a number")
         return
 
     guest_lists.append(name)
     guest_invitations.append(int(invite))
 
-    print("Guest added successfully.")
+    print("\nGuest added successfully.")
 
 
 def remove_guest():
-    name = input("Which guest would you like to remove? ").strip().title()
+    name = input("\nWhich guest would you like to remove? ").strip().title()
 
     if name in guest_lists:
         index = guest_lists.index(name)
         guest_lists.pop(index)
         guest_invitations.pop(index)
-        print("Guest removed.")
+        print("\nGuest removed.")
     else:
-        print("No known guest on list.")
+        print("\nNo known guest on list.")
 
 
 def modify_guest():
-    name = input("Enter guest name to make changes: ").strip().title()
+    name = input("\nEnter guest name to make changes: ").strip().title()
 
     if name not in guest_lists:
-        print("No guest by that name.")
+        print("\nNo guest by that name.")
         return
 
     index = guest_lists.index(name)
 
-    new_name = input("Enter new name: ").strip().title()
+    new_name = input("\nEnter new name: ").strip().title()
 
     if new_name == "":
-        print("Name can't be empty")
+        print("\nName can't be empty")
         return
 
     if new_name in guest_lists and new_name != name:
-        print("Duplicate names not allowed")
+        print("\nDuplicate names not allowed")
         return
 
-    invite = input("Enter new invitations: ").strip()
+    invite = input("\nEnter new invitations: ").strip()
 
     if not invite.isdigit():  # means the input is not a number
-        print("Invite must be numerical")
+        print("\nInvite must be numerical")
         return
 
     guest_lists[index] = new_name
     guest_invitations[index] = int(invite)
 
-    print("Guest has been modified.")
+    print("\nGuest has been modified.")
 
 
 def show_guests():
     if not guest_lists:
-        print("No guests in list")
+        print("\nNo guests in list")
         return
 
     print("\nDinner Guest List")
@@ -93,7 +93,7 @@ def show_guests():
 
 def show_invitations():
     if not guest_lists:
-        print("No invitations in list")
+        print("\nNo invitations in list")
         return
 
     print("\nDinner Guest Invitations")
@@ -116,7 +116,7 @@ def show_invitations():
 
 def sort_guests():
     if not guest_lists:
-        print("No guests in list")
+        print("\nNo guests in list")
         return
 
     sorted_guests = sorted(zip(guest_lists, guest_invitations))
@@ -124,7 +124,7 @@ def sort_guests():
         *sorted_guests
     )  # sorts the guest list and the invitations together based on the guest names
 
-    print("Guests sorted alphabetically.")
+    print("\nGuests sorted alphabetically.")
 
 
 def show_guestcount():
@@ -145,10 +145,10 @@ def main():
         print("7. Show Guest List")
         print("8. Exit")
 
-        choice = input("Enter Choice: ").strip()
+        choice = input("\nEnter Choice: ").strip()
 
         if choice == "":
-            print("Please enter a number between 1 and 8.")
+            print("\nPlease enter a number between 1 and 8.")
             continue
 
         if choice == "1":
@@ -169,7 +169,7 @@ def main():
             print("Goodbye!")
             break
         else:
-            print("Select a valid option.")
+            print("\nSelect a valid option.")
 
 
 if __name__ == "__main__":
