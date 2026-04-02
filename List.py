@@ -120,7 +120,7 @@ def sort_guests():
 
 def show_guestcount():
     print(
-        "\nNumber of guests:", len(guest_lists)
+        "\nNumber of guests:", sum(guest_invitations)
     )  # prints the number of guests in the list
 
 
